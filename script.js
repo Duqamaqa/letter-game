@@ -7,8 +7,12 @@ class LetterLearningGame {
         this.currentLetter = null;
         this.correctAnswer = null;
         this.gameActive = true;
+<<<<<<< HEAD
         this.carrots = 0;
         this.level = 1;
+=======
+        
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
         this.letters = [
             { capital: 'A', lowercase: 'a' },
             { capital: 'B', lowercase: 'b' },
@@ -37,12 +41,20 @@ class LetterLearningGame {
             { capital: 'Y', lowercase: 'y' },
             { capital: 'Z', lowercase: 'z' }
         ];
+<<<<<<< HEAD
         this.initializeGame();
     }
+=======
+        
+        this.initializeGame();
+    }
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     initializeGame() {
         this.setupEventListeners();
         this.generateNewQuestion();
         this.updateStats();
+<<<<<<< HEAD
         this.updateCarrotBank();
     }
     setupEventListeners() {
@@ -65,10 +77,35 @@ class LetterLearningGame {
     }
     switchMode(mode) {
         this.currentMode = mode;
+=======
+    }
+    
+    setupEventListeners() {
+        // Mode switching
+        document.getElementById('capitalToLower').addEventListener('click', () => {
+            this.switchMode('capitalToLower');
+        });
+        
+        document.getElementById('lowerToCapital').addEventListener('click', () => {
+            this.switchMode('lowerToCapital');
+        });
+        
+        // Next button
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            this.generateNewQuestion();
+        });
+    }
+    
+    switchMode(mode) {
+        this.currentMode = mode;
+        
+        // Update button states
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
         document.querySelectorAll('.mode-btn').forEach(btn => {
             btn.classList.remove('active');
         });
         document.getElementById(mode).classList.add('active');
+<<<<<<< HEAD
         this.generateNewQuestion();
     }
     generateNewQuestion() {
@@ -77,6 +114,24 @@ class LetterLearningGame {
         this.hideNextButton();
         const randomIndex = Math.floor(Math.random() * this.letters.length);
         this.currentLetter = this.letters[randomIndex];
+=======
+        
+        // Generate new question with new mode
+        this.generateNewQuestion();
+    }
+    
+    generateNewQuestion() {
+        // Reset game state
+        this.gameActive = true;
+        this.hideFeedback();
+        this.hideNextButton();
+        
+        // Select random letter
+        const randomIndex = Math.floor(Math.random() * this.letters.length);
+        this.currentLetter = this.letters[randomIndex];
+        
+        // Set target letter based on mode
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
         const targetLetterElement = document.getElementById('targetLetter');
         if (this.currentMode === 'capitalToLower') {
             targetLetterElement.textContent = this.currentLetter.capital;
@@ -85,26 +140,56 @@ class LetterLearningGame {
             targetLetterElement.textContent = this.currentLetter.lowercase;
             this.correctAnswer = this.currentLetter.capital;
         }
+<<<<<<< HEAD
         this.generateOptions();
     }
     generateOptions() {
         const optionsGrid = document.getElementById('optionsGrid');
         optionsGrid.innerHTML = '';
+=======
+        
+        // Generate options
+        this.generateOptions();
+    }
+    
+    generateOptions() {
+        const optionsGrid = document.getElementById('optionsGrid');
+        optionsGrid.innerHTML = '';
+        
+        // Create array of all possible answers
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
         let allOptions = [];
         if (this.currentMode === 'capitalToLower') {
             allOptions = this.letters.map(letter => letter.lowercase);
         } else {
             allOptions = this.letters.map(letter => letter.capital);
         }
+<<<<<<< HEAD
         const shuffledOptions = this.shuffleArray([...allOptions]);
         const selectedOptions = [this.correctAnswer];
+=======
+        
+        // Shuffle and select 4 options including the correct answer
+        const shuffledOptions = this.shuffleArray([...allOptions]);
+        const selectedOptions = [this.correctAnswer];
+        
+        // Add 3 random wrong options
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
         for (let option of shuffledOptions) {
             if (selectedOptions.length >= 4) break;
             if (option !== this.correctAnswer) {
                 selectedOptions.push(option);
             }
         }
+<<<<<<< HEAD
         const finalOptions = this.shuffleArray(selectedOptions);
+=======
+        
+        // Shuffle the final options
+        const finalOptions = this.shuffleArray(selectedOptions);
+        
+        // Create option buttons
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
         finalOptions.forEach(option => {
             const button = document.createElement('button');
             button.className = 'option-btn';
@@ -113,6 +198,7 @@ class LetterLearningGame {
             optionsGrid.appendChild(button);
         });
     }
+<<<<<<< HEAD
     checkAnswer(selectedAnswer) {
         if (!this.gameActive) return;
         this.gameActive = false;
@@ -204,6 +290,34 @@ class LetterLearningGame {
         container.appendChild(emoji);
         setTimeout(() => emoji.remove(), 1200);
     }
+=======
+    
+    checkAnswer(selectedAnswer) {
+        if (!this.gameActive) return;
+        
+        this.gameActive = false;
+        this.total++;
+        
+        const isCorrect = selectedAnswer === this.correctAnswer;
+        
+        if (isCorrect) {
+            this.score++;
+            this.streak++;
+            this.showFeedback('Correct! 🎉', 'correct');
+            this.highlightCorrectAnswer();
+        } else {
+            this.streak = 0;
+            this.showFeedback(`Wrong! The correct answer is ${this.correctAnswer}`, 'incorrect');
+            this.highlightCorrectAnswer();
+            this.highlightIncorrectAnswer(selectedAnswer);
+        }
+        
+        this.updateStats();
+        this.updateProgress();
+        this.showNextButton();
+    }
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     highlightCorrectAnswer() {
         const buttons = document.querySelectorAll('.option-btn');
         buttons.forEach(button => {
@@ -212,6 +326,10 @@ class LetterLearningGame {
             }
         });
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     highlightIncorrectAnswer(wrongAnswer) {
         const buttons = document.querySelectorAll('.option-btn');
         buttons.forEach(button => {
@@ -220,30 +338,58 @@ class LetterLearningGame {
             }
         });
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     showFeedback(message, type) {
         const feedbackElement = document.getElementById('feedbackMessage');
         feedbackElement.textContent = message;
         feedbackElement.className = `feedback-message ${type} show`;
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     hideFeedback() {
         const feedbackElement = document.getElementById('feedbackMessage');
         feedbackElement.className = 'feedback-message';
     }
+<<<<<<< HEAD
     showNextButton() {
         document.getElementById('nextBtn').style.display = 'inline-block';
     }
     hideNextButton() {
         document.getElementById('nextBtn').style.display = 'none';
     }
+=======
+    
+    showNextButton() {
+        document.getElementById('nextBtn').style.display = 'inline-block';
+    }
+    
+    hideNextButton() {
+        document.getElementById('nextBtn').style.display = 'none';
+    }
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     updateStats() {
         document.getElementById('score').textContent = this.score;
         document.getElementById('streak').textContent = this.streak;
         document.getElementById('total').textContent = this.total;
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     updateProgress() {
         const progressPercentage = this.total > 0 ? (this.score / this.total) * 100 : 0;
         document.getElementById('progressFill').style.width = `${progressPercentage}%`;
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     shuffleArray(array) {
         const shuffled = [...array];
         for (let i = shuffled.length - 1; i > 0; i--) {
@@ -253,6 +399,11 @@ class LetterLearningGame {
         return shuffled;
     }
 }
+<<<<<<< HEAD
+=======
+
+// Initialize the game when the page loads
+>>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 document.addEventListener('DOMContentLoaded', () => {
     new LetterLearningGame();
 }); 
