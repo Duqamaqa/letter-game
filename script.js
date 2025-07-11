@@ -52,14 +52,12 @@ class LetterLearningGame {
         document.getElementById('lowerToCapital').addEventListener('click', () => {
             this.switchMode('lowerToCapital');
         });
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            this.generateNewQuestion();
-        });
         document.querySelectorAll('.level-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 this.level = parseInt(btn.getAttribute('data-level'));
+                this.generateNewQuestion();
             });
         });
     }
@@ -74,7 +72,6 @@ class LetterLearningGame {
     generateNewQuestion() {
         this.gameActive = true;
         this.hideFeedback();
-        this.hideNextButton();
         const randomIndex = Math.floor(Math.random() * this.letters.length);
         this.currentLetter = this.letters[randomIndex];
         const targetLetterElement = document.getElementById('targetLetter');
@@ -139,7 +136,7 @@ class LetterLearningGame {
         this.updateStats();
         this.updateProgress();
         this.updateCarrotBank();
-        this.showNextButton();
+        this.showNextButtonInOptionsGrid();
     }
     updateCarrotBank() {
         const carrotIcons = document.getElementById('carrotIcons');
@@ -229,11 +226,17 @@ class LetterLearningGame {
         const feedbackElement = document.getElementById('feedbackMessage');
         feedbackElement.className = 'feedback-message';
     }
-    showNextButton() {
-        document.getElementById('nextBtn').style.display = 'inline-block';
-    }
-    hideNextButton() {
-        document.getElementById('nextBtn').style.display = 'none';
+    showNextButtonInOptionsGrid() {
+        const optionsGrid = document.getElementById('optionsGrid');
+        // Remove any existing next button first
+        const oldNext = document.getElementById('nextBtn');
+        if (oldNext) oldNext.remove();
+        const nextBtn = document.createElement('button');
+        nextBtn.id = 'nextBtn';
+        nextBtn.className = 'next-btn';
+        nextBtn.textContent = 'Next Letter';
+        nextBtn.addEventListener('click', () => this.generateNewQuestion());
+        optionsGrid.appendChild(nextBtn);
     }
     updateStats() {
         document.getElementById('score').textContent = this.score;

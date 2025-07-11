@@ -10,8 +10,15 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎯 Learn Letters</h1>
-            <p>Match the letters correctly to learn!</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>🎯 Learn Letters</h1>
+                    <p>Match the letters correctly to learn!</p>
+                </div>
+                <button id="timerBtn" style="background: none; border: none; cursor: pointer; padding: 0;">
+                    <img src="images/timer_icon.png" alt="Timer" style="width: 40px; height: 40px; image-rendering: pixelated;" />
+                </button>
+            </div>
         </header>
 
         <div class="game-controls">
@@ -66,7 +73,6 @@
             <div class="progress-fill" id="progressFill"></div>
         </div>
 
-        <button id="nextBtn" class="next-btn" style="display: none;">Next Letter</button>
     </div>
 
     <script src="script.js"></script>

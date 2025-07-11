@@ -290,6 +290,10 @@ header p {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(66, 153, 225, 0.4);
 }
+.options-grid .next-btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
 /* Responsive Design */
 @media (max-width: 480px) {
     .container {
