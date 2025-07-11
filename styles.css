@@ -1,16 +1,9 @@
-<<<<<<< HEAD
 /* --- BASE STYLES --- */
-=======
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 body {
     font-family: 'Comic Neue', cursive;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -20,10 +13,6 @@ body {
     justify-content: center;
     padding: 20px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .container {
     background: white;
     border-radius: 20px;
@@ -33,45 +22,25 @@ body {
     width: 100%;
     text-align: center;
 }
-<<<<<<< HEAD
 header {
     margin-bottom: 30px;
 }
-=======
-
-header {
-    margin-bottom: 30px;
-}
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 header h1 {
     color: #4a5568;
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 header p {
     color: #718096;
     font-size: 1.1rem;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .game-controls {
     display: flex;
     gap: 10px;
     justify-content: center;
     margin-bottom: 30px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .mode-btn {
     background: #e2e8f0;
     border: none;
@@ -83,24 +52,15 @@ header p {
     transition: all 0.3s ease;
     color: #4a5568;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .mode-btn:hover {
     background: #cbd5e0;
     transform: translateY(-2px);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .mode-btn.active {
     background: #4299e1;
     color: white;
     box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
 }
-<<<<<<< HEAD
 .carrot-bank {
     display: flex;
     align-items: center;
@@ -184,17 +144,6 @@ header p {
 .target-letter {
     margin-bottom: 30px;
 }
-=======
-
-.game-area {
-    margin-bottom: 30px;
-}
-
-.target-letter {
-    margin-bottom: 30px;
-}
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .target-letter h2 {
     font-size: 4rem;
     color: #2d3748;
@@ -202,10 +151,6 @@ header p {
     margin: 0;
     animation: bounce 2s infinite;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -217,17 +162,9 @@ header p {
         transform: translateY(-5px);
     }
 }
-<<<<<<< HEAD
 .options-container {
     margin-bottom: 20px;
 }
-=======
-
-.options-container {
-    margin-bottom: 20px;
-}
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .options-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -235,10 +172,6 @@ header p {
     max-width: 400px;
     margin: 0 auto;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .option-btn {
     background: #f7fafc;
     border: 3px solid #e2e8f0;
@@ -251,57 +184,33 @@ header p {
     color: #4a5568;
     font-family: inherit;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .option-btn:hover {
     background: #edf2f7;
     border-color: #cbd5e0;
     transform: scale(1.05);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .option-btn.correct {
     background: #48bb78;
     border-color: #38a169;
     color: white;
     animation: correctPulse 0.6s ease;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .option-btn.incorrect {
     background: #f56565;
     border-color: #e53e3e;
     color: white;
     animation: incorrectShake 0.6s ease;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 @keyframes correctPulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 @keyframes incorrectShake {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .feedback {
     margin-top: 20px;
     min-height: 60px;
@@ -309,10 +218,6 @@ header p {
     align-items: center;
     justify-content: center;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .feedback-message {
     font-size: 1.2rem;
     font-weight: bold;
@@ -321,33 +226,17 @@ header p {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-<<<<<<< HEAD
 .feedback-message.show {
     opacity: 1;
 }
-=======
-
-.feedback-message.show {
-    opacity: 1;
-}
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .feedback-message.correct {
     background: #c6f6d5;
     color: #22543d;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .feedback-message.incorrect {
     background: #fed7d7;
     color: #742a2a;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .stats {
     display: flex;
     justify-content: space-around;
@@ -356,37 +245,21 @@ header p {
     padding: 20px;
     border-radius: 15px;
 }
-<<<<<<< HEAD
 .stat-item {
     text-align: center;
 }
-=======
-
-.stat-item {
-    text-align: center;
-}
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .stat-label {
     display: block;
     color: #718096;
     font-size: 0.9rem;
     margin-bottom: 5px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .stat-value {
     display: block;
     color: #2d3748;
     font-size: 1.5rem;
     font-weight: bold;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .progress-bar {
     background: #e2e8f0;
     border-radius: 10px;
@@ -394,20 +267,12 @@ header p {
     margin-bottom: 20px;
     overflow: hidden;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .progress-fill {
     background: linear-gradient(90deg, #48bb78, #38a169);
     height: 100%;
     width: 0%;
     transition: width 0.3s ease;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .next-btn {
     background: #4299e1;
     color: white;
@@ -420,63 +285,34 @@ header p {
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 .next-btn:hover {
     background: #3182ce;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(66, 153, 225, 0.4);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
 /* Responsive Design */
 @media (max-width: 480px) {
     .container {
         padding: 20px;
     }
-<<<<<<< HEAD
     header h1 {
         font-size: 2rem;
     }
     .target-letter h2 {
         font-size: 3rem;
     }
-=======
-    
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    .target-letter h2 {
-        font-size: 3rem;
-    }
-    
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     .options-grid {
         grid-template-columns: 1fr;
         gap: 10px;
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     .option-btn {
         padding: 15px;
         font-size: 1.5rem;
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
     .stats {
         flex-direction: column;
         gap: 15px;
     }
-<<<<<<< HEAD
 }
 /* --- HAPPY & FUNNY EFFECTS --- */
 .confetti {
@@ -522,6 +358,4 @@ header p {
     60% { transform: rotate(-8deg) scale(1.05); }
     80% { transform: rotate(8deg) scale(1.05); }
     100% { transform: rotate(0deg) scale(1); }
-=======
->>>>>>> 6ca9d13118d89b40356cf9b99fc6a57ab995b385
-} 
+}
