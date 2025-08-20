@@ -9,7 +9,7 @@ class LetterLearningGame {
         this.gameActive = true;
         this.carrots = 0;
         this.level = 1;
-        this.letters = [
+        this.allLetters = [
             { capital: 'A', lowercase: 'a' },
             { capital: 'B', lowercase: 'b' },
             { capital: 'C', lowercase: 'c' },
@@ -37,13 +37,29 @@ class LetterLearningGame {
             { capital: 'Y', lowercase: 'y' },
             { capital: 'Z', lowercase: 'z' }
         ];
+        this.letters = this.allLetters.slice();
         this.initializeGame();
     }
     initializeGame() {
         this.setupEventListeners();
+        this.loadUserState();
         this.generateNewQuestion();
         this.updateStats();
         this.updateCarrotBank();
+        this.renderPets();
+    }
+    loadUserState() {
+        if (window.LGApp) {
+            const user = LGApp.getUserData();
+            if (user) {
+                this.carrots = user.carrots || 0;
+                const selected = LGApp.getSelectedLetters();
+                if (selected && selected.length > 0) {
+                    const set = new Set(selected);
+                    this.letters = this.allLetters.filter(l => set.has(l.capital));
+                }
+            }
+        }
     }
     setupEventListeners() {
         document.getElementById('capitalToLower').addEventListener('click', () => {
@@ -118,25 +134,33 @@ class LetterLearningGame {
         if (isCorrect) {
             this.score++;
             this.streak++;
-            this.carrots++;
+            this.carrots = (this.carrots || 0) + 1;
             this.showFeedback('Correct! 🎉', 'correct');
             this.highlightCorrectAnswer();
             this.animateCarrotHappy();
             this.showConfetti();
             this.wiggleTargetLetter();
             this.showHappyEmoji();
+            this.cheerPets();
         } else {
             this.streak = 0;
-            this.carrots = Math.max(0, this.carrots - this.level);
+            this.carrots = Math.max(0, (this.carrots || 0) - this.level);
             this.showFeedback(`Wrong! The correct answer is ${this.correctAnswer}`, 'incorrect');
             this.highlightCorrectAnswer();
             this.highlightIncorrectAnswer(selectedAnswer);
             this.animateCarrotFlyAway(this.level);
+            this.sadPets();
         }
         this.updateStats();
         this.updateProgress();
         this.updateCarrotBank();
+        this.persistCarrots();
         this.showNextButtonInOptionsGrid();
+    }
+    persistCarrots() {
+        if (window.LGApp && LGApp.getUserData()) {
+            LGApp.updateUserData({ carrots: this.carrots });
+        }
     }
     updateCarrotBank() {
         const carrotIcons = document.getElementById('carrotIcons');
@@ -148,6 +172,42 @@ class LetterLearningGame {
             carrotIcons.appendChild(carrot);
         }
         carrotCount.textContent = this.carrots;
+    }
+    renderPets() {
+        const layer = document.getElementById('petsLayer');
+        if (!layer) return;
+        layer.innerHTML = '';
+        if (!(window.LGApp && LGApp.getUserData())) return;
+        const user = LGApp.getUserData();
+        const owned = Array.isArray(user.pets) ? user.pets : [];
+        const catalog = LGApp.getPetsCatalog();
+        const areaWidth = layer.clientWidth || 400;
+        const areaHeight = 60;
+        owned.forEach((id, idx) => {
+            const el = document.createElement('div');
+            el.className = 'pet pet-sprite';
+            const spritePath = `images/pet-${id}.png`;
+            el.style.backgroundImage = `url('${spritePath}')`;
+            const left = Math.max(0, Math.floor(Math.random() * (areaWidth - 40)));
+            const top = Math.max(0, Math.floor(Math.random() * (areaHeight)));
+            el.style.left = left + 'px';
+            el.style.top = top + 'px';
+            layer.appendChild(el);
+        });
+    }
+    cheerPets() {
+        document.querySelectorAll('.pet').forEach(p => {
+            p.classList.remove('pet-sad');
+            p.classList.add('pet-cheer');
+            setTimeout(() => p.classList.remove('pet-cheer'), 600);
+        });
+    }
+    sadPets() {
+        document.querySelectorAll('.pet').forEach(p => {
+            p.classList.remove('pet-cheer');
+            p.classList.add('pet-sad');
+            setTimeout(() => p.classList.remove('pet-sad'), 600);
+        });
     }
     animateCarrotHappy() {
         const carrotIcons = document.querySelectorAll('.carrot-icon');

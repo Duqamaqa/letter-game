@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/app-icon.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>👋 Login</h1>
+      <div class="top-nav">
+        <a href="index.html">Play</a>
+        <a href="timed.html">Timer Mode ⏱️</a>
+        <a href="select.html">Choose Letters 🔤</a>
+        <a href="shop.html">Shop 🛒</a>
+        <a href="login.html" id="loginNav">Login</a>
+      </div>
+      <img src="images/login-illustration.png" alt="Friendly login illustration" class="hero-banner">
+    </header>
+
+    <form class="form" id="loginForm">
+      <input class="input" type="email" id="email" placeholder="Email" required />
+      <button class="btn" type="submit">Login</button>
+      <button class="btn secondary" type="button" id="logoutBtn">Logout</button>
+    </form>
+    <p style="margin-top:10px; color:#4a5568;" id="status"></p>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Letters</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/app-icon.png">
+  <style>
+    .letters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(48px, 1fr)); gap: 8px; margin-top: 12px; }
+    .letters-grid label { background: #f7fafc; border: 2px solid #e2e8f0; padding: 10px; border-radius: 10px; text-align: center; cursor: pointer; }
+    .letters-grid input { margin-right: 6px; }
+  </style>
+  </head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔤 Choose Letters</h1>
+      <div class="top-nav">
+        <a href="index.html">Play</a>
+        <a href="timed.html">Timer Mode ⏱️</a>
+        <a href="select.html">Choose Letters 🔤</a>
+        <a href="shop.html">Shop 🛒</a>
+        <a href="login.html" id="loginNav">Login</a>
+      </div>
+      <img src="images/hero-bunny.png" alt="Bunny mascot" class="hero-banner">
+    </header>
+
+    <p>Select which letters you want to practice. Save to apply.</p>
+
+    <div style="margin: 10px 0; display:flex; gap:8px; justify-content:center;">
+      <button class="btn" id="selectAll">Select All</button>
+      <button class="btn secondary" id="clearAll">Clear All</button>
+    </div>
+
+    <div class="letters-grid" id="lettersGrid"></div>
+
+    <div style="margin-top: 14px;">
+      <button class="btn" id="saveBtn">Save</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="select.js"></script>
+</body>
+</html>
+
+

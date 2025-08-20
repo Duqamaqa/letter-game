@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/app-icon.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🛒 Pet Shop</h1>
+      <div class="top-nav">
+        <a href="index.html">Play</a>
+        <a href="timed.html">Timer Mode ⏱️</a>
+        <a href="select.html">Choose Letters 🔤</a>
+        <a href="shop.html">Shop 🛒</a>
+        <a href="login.html" id="loginNav">Login</a>
+      </div>
+      <img src="images/shop-banner.png" alt="Pet shop banner" class="hero-banner">
+    </header>
+
+    <div class="carrot-bank" style="justify-content:center;">
+      <span id="carrotIcons"></span>
+      <span class="carrot-label">Carrots: <span id="carrotCount">0</span></span>
+    </div>
+
+    <div class="shop-grid" id="shopGrid"></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="shop.js"></script>
+</body>
+</html>
+
+

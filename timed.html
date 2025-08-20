@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timer Mode</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/app-icon.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⏱️ Timer Mode</h1>
+      <p>Answer as many as you can in one minute!</p>
+      <div class="top-nav">
+        <a href="index.html">Play</a>
+        <a href="timed.html">Timer Mode ⏱️</a>
+        <a href="select.html">Choose Letters 🔤</a>
+        <a href="shop.html">Shop 🛒</a>
+        <a href="login.html" id="loginNav">Login</a>
+      </div>
+      <img src="images/timed-hero.png" alt="Stopwatch with flying letters" class="hero-banner">
+    </header>
+
+    <div class="carrot-bank" style="justify-content:center;">
+      <span id="carrotIcons"></span>
+      <span class="carrot-label">Carrots: <span id="carrotCount">0</span></span>
+    </div>
+
+    <div class="stats" style="gap: 10px;">
+      <div class="stat-item"><span class="stat-label">Time Left</span> <span class="stat-value timer" id="timeLeft">60</span></div>
+      <div class="stat-item"><span class="stat-label">Correct</span> <span class="stat-value" id="score">0</span></div>
+      <div class="stat-item"><span class="stat-label">Best</span> <span class="stat-value best-score" id="best">0</span></div>
+    </div>
+
+    <div class="game-area">
+      <div class="target-letter"><h2 id="targetLetter">A</h2></div>
+      <div class="options-container">
+        <div class="options-grid" id="optionsGrid"></div>
+      </div>
+      <div class="feedback" id="feedback">
+        <div class="feedback-message" id="feedbackMessage"></div>
+      </div>
+      <div class="pets-layer" id="petsLayer"></div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <button class="btn" id="startBtn">Start</button>
+      <button class="btn secondary" id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="timed.js"></script>
+</body>
+</html>
+
+

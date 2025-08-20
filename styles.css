@@ -13,6 +13,18 @@ body {
     justify-content: center;
     padding: 20px;
 }
+.body::before {}
+.body::after {}
+/* Subtle alphabet pattern overlay on top of the gradient */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url('images/bg-alphabet-seamless.png') repeat center/480px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
 .container {
     background: white;
     border-radius: 20px;
@@ -21,6 +33,18 @@ body {
     max-width: 600px;
     width: 100%;
     text-align: center;
+    position: relative; /* to allow decorative overlay */
+    z-index: 1;
+}
+/* Very faint confetti watermark inside the card */
+.container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('images/confetti-pack.png') center/360px no-repeat;
+    opacity: 0.06;
+    pointer-events: none;
+    border-radius: inherit;
 }
 header {
     margin-bottom: 30px;
@@ -34,6 +58,13 @@ header h1 {
 header p {
     color: #718096;
     font-size: 1.1rem;
+}
+/* Global hero/banner images */
+.hero-banner {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    margin: 8px 0 12px;
 }
 .game-controls {
     display: flex;
@@ -51,6 +82,21 @@ header p {
     cursor: pointer;
     transition: all 0.3s ease;
     color: #4a5568;
+}
+/* Add icons to mode buttons */
+#capitalToLower {
+    background-image: url('images/icon-cap-to-low.png');
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    background-size: 22px 22px;
+    padding-left: 44px;
+}
+#lowerToCapital {
+    background-image: url('images/icon-low-to-cap.png');
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    background-size: 22px 22px;
+    padding-left: 44px;
 }
 .mode-btn:hover {
     background: #cbd5e0;
@@ -80,10 +126,11 @@ header p {
     margin-left: 8px;
 }
 .carrot-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     display: inline-block;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g><ellipse cx="32" cy="48" rx="16" ry="10" fill="%23e67e22"/><rect x="28" y="10" width="8" height="24" rx="4" fill="%23e67e22"/><rect x="30" y="2" width="4" height="12" rx="2" fill="%232ecc40"/></g></svg>') no-repeat center/contain;
+    background: url('images/carrot-coin.png') no-repeat center/contain;
+    image-rendering: pixelated;
     transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .carrot-icon.happy {
@@ -130,6 +177,10 @@ header p {
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(246, 224, 94, 0.2);
     transition: background 0.2s, color 0.2s, transform 0.2s;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 24px 24px;
+    padding-left: 40px;
 }
 .level-btn.active {
     background: #e67e22;
@@ -141,6 +192,11 @@ header p {
     background: #f2994a;
     color: #fff;
 }
+/* Level badge icons on buttons */
+.level-btn[data-level="1"] { background-image: url('images/badge-level-1.png'); }
+.level-btn[data-level="2"] { background-image: url('images/badge-level-2.png'); }
+.level-btn[data-level="3"] { background-image: url('images/badge-level-3.png'); }
+.level-btn[data-level="4"] { background-image: url('images/badge-level-4.png'); }
 .target-letter {
     margin-bottom: 30px;
 }
@@ -200,6 +256,21 @@ header p {
     border-color: #e53e3e;
     color: white;
     animation: incorrectShake 0.6s ease;
+}
+/* Add cute sticker icons to feedback messages */
+.feedback-message.correct {
+    background-image: url('images/sticker-correct.png');
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 28px 28px;
+    padding-left: 54px;
+}
+.feedback-message.incorrect {
+    background-image: url('images/sticker-oops.png');
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 28px 28px;
+    padding-left: 54px;
 }
 @keyframes correctPulse {
     0% { transform: scale(1); }
@@ -277,13 +348,17 @@ header p {
     background: #4299e1;
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 15px 30px 15px 56px;
     border-radius: 25px;
     font-family: inherit;
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+    background-image: url('images/btn-next.png');
+    background-repeat: no-repeat;
+    background-position: 18px center;
+    background-size: 28px 28px;
 }
 .next-btn:hover {
     background: #3182ce;
@@ -293,6 +368,27 @@ header p {
 .options-grid .next-btn {
     grid-column: 1 / -1;
     justify-self: center;
+}
+/* --- NAV --- */
+.top-nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+.top-nav a, .top-nav button.nav-link {
+    background: #edf2f7;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 18px;
+    color: #2d3748;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+.top-nav a:hover, .top-nav button.nav-link:hover {
+    background: #e2e8f0;
 }
 /* Responsive Design */
 @media (max-width: 480px) {
@@ -363,3 +459,100 @@ header p {
     80% { transform: rotate(8deg) scale(1.05); }
     100% { transform: rotate(0deg) scale(1); }
 }
+/* --- PETS --- */
+.pets-layer {
+    position: relative;
+    min-height: 80px;
+}
+.pet {
+    position: absolute;
+    font-size: 0; /* switch to sprite images; text pets hidden */
+    user-select: none;
+    pointer-events: none;
+    animation: petFloat 8s ease-in-out infinite;
+}
+.pet.pet-sprite {
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.pet:nth-child(2) { animation-duration: 10s; }
+.pet:nth-child(3) { animation-duration: 12s; }
+.pet:nth-child(4) { animation-duration: 9s; }
+@keyframes petFloat {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(20px, -10px) rotate(5deg); }
+    50% { transform: translate(-10px, 10px) rotate(-5deg); }
+    75% { transform: translate(10px, -15px) rotate(3deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+}
+.pet-cheer {
+    animation: petCheer 0.6s ease;
+}
+@keyframes petCheer {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+.pet-sad {
+    animation: petSad 0.6s ease;
+}
+@keyframes petSad {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(6px); opacity: 0.8; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --- TIMER PAGE --- */
+.timer {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2d3748;
+}
+.best-score {
+    color: #805ad5;
+    font-weight: bold;
+}
+
+/* --- FORMS --- */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+.input {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    font-family: inherit;
+}
+.btn {
+    background: #4299e1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.btn.secondary {
+    background: #718096;
+}
+
+/* --- SHOP --- */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+}
+.shop-item {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+}
+.shop-item h3 { margin-bottom: 6px; }
+.shop-item button:disabled { opacity: 0.6; cursor: not-allowed; }
